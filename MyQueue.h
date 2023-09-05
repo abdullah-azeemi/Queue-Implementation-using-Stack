@@ -14,10 +14,11 @@ public:
 	MyQueue() {
 
 	}
-	void enque(T val) {
+	MyQueue<T>& enque(T val) {
 		s1.push(val);
+		return *this;
 	}
-	T deque() {
+	void dequeue() {
 
 		if (s1.empty() && s2.empty()) {
 			throw exception("Queue is empty ...");
@@ -26,7 +27,7 @@ public:
 		if (!s2.empty()) {
 			x = s2.top();
 			s2.pop();
-			return x;
+			
 		}
 		else {
 			while (!s1.empty()) {
@@ -35,7 +36,7 @@ public:
 			}
 			x = s2.top();
 			s2.pop();
-			return x;
+			
 		}
 	}
 	T peek() {  //--- Peek is almost the same as deque, if we do pop() the elemnts
